@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import { initializeApp } from "firebase/app";
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import { initializeApp } from "firebase/app"
 
 const firebaseConfig = {
   apiKey: "AIzaSyAu9m6Ht3SuZ9946B_8aTjczpuqUh_3bU4",
@@ -16,7 +16,10 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+firebase.initializeApp(firebaseConfig);
+
+// Initialize Firestore
+const db = firebase.firestore();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
